@@ -1,0 +1,62 @@
+
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+
+.container {
+  padding: 15px;
+}
+.header {
+  max-width: 1920px;
+  background-color: aquamarine;
+  height: 60px;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+.main {
+  background-color: grey;
+  padding: 30px;
+}
+.hero {
+  background-color: blanchedalmond;
+  padding: 15px;
+}
+.nav__list,
+.hero__list{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.form__input {
+  margin-bottom: 10px;
+}
+.hero__text{
+  color: brown;
+}
