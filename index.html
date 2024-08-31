@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор погашения</title>
+
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <script defer src="./index.js"></script>
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      createCalcApp(document.getElementById(`input__calculation`), `Кредитный калькулятор`,`credit-calc`)
+    });
+</script> -->
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="header__nav nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#" class="nav__link">Lorem, ipsum.</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Lorem, ipsum.</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Lorem, ipsum.</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Lorem, ipsum.</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main">
+    <section class="hero" id="hero">
+      <div class="container hero__container">
+        <nav class="nav hero__nav">
+          <ul class="hero__list">
+            <li class="hero__item"><a href="#" class="hero__link">Кредитный калькулятор</a></li>
+            <li class="hero__item"><a href="#" class="hero__link">Калькулятор рассрочки</a></li>
+            <li class="hero__item"><a href="#" class="hero__link">Общий</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="input__calculation" id="input__calculation">
+        <form action="#" class="hero__form form">
+          <div class="form__input">
+             <input type="number" min="0" required class="hero__input" id="summ__credit" placeholder="Сумма кредита">
+             <input type="number" min="0" required class="hero__input" id="percentages" placeholder="процентная ставка">
+             <input type="number" min="0" required class="hero__input" id="termCredit" placeholder="Срок">
+             <input type="number" min="0" required class="hero__input" id="extraPayment" placeholder="досрочое погашение">
+          </div>
+           <button class="btn form__btn" id="form__btn">Расчитать кредит</button>
+            
+        </form>
+      </div>
+    </section>
+    <section class="value">
+
+    </section>
+
+  </main>
+  <footer>
+
+  </footer>
+</body>
+
+</html>
