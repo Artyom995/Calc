@@ -27,7 +27,17 @@ ul {
   padding: 0;
   margin: 0;
 }
-
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 
 .container {
   padding: 15px;
@@ -49,12 +59,20 @@ ul {
 }
 .nav__list,
 .hero__list{
-  display: flex;
   width: 100%;
   justify-content: space-between;
 }
-
+.input__calculation {
+  width: 100%;
+}
+.hero__form {
+  width: 100%;
+}
+.hero__item {
+  width: 50%;
+}
 .form__input {
+  width: 50%;
   margin-bottom: 10px;
 }
 .hero__text{

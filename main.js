@@ -1,7 +1,7 @@
 //Кредит,  и его месячные платяжи с досрочным погашением
 let danoCredit = {
-  credit: 300000,
-  percentages: 27.95,
+  credit: 288000,
+  percentages: 29.9,
   termCredit: 60,
   extraPayment: 0
 }
@@ -72,7 +72,7 @@ console.log('Вы загасите кредит через ' + dolgN.length + " 
 
 console.log('-----------------------------------Рассрочка----------------------------------');
 let creditTwo = {
-  amount: 20000,
+  amount: 5000,
   termTwo: 6,
   percentages: 0,
   extraPayment: 0,

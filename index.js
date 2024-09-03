@@ -4,24 +4,30 @@
 // В функции createResultDiv вы создаете новый элемент resultDiv, но не добавляете его к элементу heroSection. Вы должны добавить heroSection.appendChild(resultDiv); в конце функции.
 // Вы можете рассмотреть добавление некоторых стилей CSS, чтобы сделать вывод более привлекательным.
 
+
+
 (function () {
   // Создаем функцию, которая собирает данные из полей ввода
   function createCalcForm() {
     // Получаем элементы
-    const formBtn = document.getElementById('form__btn');
+    const form = document.getElementById('hero__form');
     const summCreditInput = document.getElementById('summ__credit');
     const percentagesInput = document.getElementById('percentages');
     const termCreditInput = document.getElementById('termCredit');
     const extraPaymentInput = document.getElementById('extraPayment');
 
     // Добавляем обработчик события клика на кнопку
-    formBtn.addEventListener('click', () => {
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); // предотвратить стандартное действие браузера
+
       // Собираем данные из полей ввода
       const summCreditValue = parseFloat(summCreditInput.value);
       const percentagesValue = parseFloat(percentagesInput.value);
       const termCreditValue = parseFloat(termCreditInput.value);
       const extraPaymentValue = parseFloat(extraPaymentInput.value);
-      // Собираем данные из полей ввода
+
+      // Проверяем данные
       if (summCreditValue <= 0 || percentagesValue < 0 || termCreditValue <= 0 || extraPaymentValue < 0) {
         // Создаем новый div элемент
         const resultDiv = document.createElement('div');
@@ -48,6 +54,11 @@
 
   // Создаем функцию, которая создает div элемент для отображения данных
   function createResultDiv(danoCredit) {
+    // Удаляем старый div элемент с результатами
+    const oldResultDiv = document.querySelector('.result-div');
+    if (oldResultDiv) {
+      oldResultDiv.remove();
+    }
 
     // Создаем новый div элемент
     const resultDiv = document.createElement('div');
@@ -92,7 +103,7 @@
 
 
       // Рассчитаем месячную процентную ставку
-      let monthlyInterestRate = percentages / 12 / 100;
+      let monthlyInterestRate = percentages === 0 ? 0.000001 : percentages / 12 / 100;
 
       // Функция для расчета ежемесячного платежа
       function calculateMonthlyPayment(principal, rate, term) {
@@ -165,10 +176,6 @@
 
   // Вызываем функцию createCalcForm
   createCalcForm();
-
-
-
-
 
 
 
