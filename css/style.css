@@ -1,4 +1,7 @@
-
+:root {
+  --black-color: #121723;
+  --text-color: #c73d7e;
+}
 
 html {
   box-sizing: border-box;
@@ -76,5 +79,14 @@ ul {
   margin-bottom: 10px;
 }
 .hero__text{
-  color: brown;
+  color: var(--text-color);
+}
+
+/* js элементы  */
+.result-div {
+  width: 50%;
+}
+.hero__subtitle {
+  font-size: 36px;
+  color: var(--black-color);
 }

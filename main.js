@@ -1,7 +1,7 @@
 //Кредит,  и его месячные платяжи с досрочным погашением
 let danoCredit = {
-  credit: 288000,
-  percentages: 29.9,
+  credit: 300000,
+  percentages: 30,
   termCredit: 60,
   extraPayment: 0
 }
