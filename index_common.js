@@ -69,7 +69,7 @@
           resultDiv.className = 'result-div';
 
           let summCreditP2 = document.createElement('p');
-          summCreditP2.classList.add(`hero__text`);
+          summCreditP2.classList.add(`text`);
           summCreditP2.textContent = `Вы ввели неверное значение`;
           resultDiv.appendChild(summCreditP2);
           alert('Ошибка: сумма кредита, процентная ставка, срок кредита и дополнительный платеж должны быть положительными');
@@ -81,7 +81,7 @@
           resultDiv__com.className = 'result-div';
 
           let summCreditP2__com = document.createElement('p');
-          summCreditP2__com.classList.add(`hero__text`);
+          summCreditP2__com.classList.add(`text`);
           summCreditP2__com.textContent = `Вы ввели неверное значение`;
           resultDiv__com.appendChild(summCreditP2__com);
           alert('Ошибка: сумма кредита, процентная ставка, срок кредита и дополнительный платеж должны быть положительными');
@@ -103,31 +103,37 @@
     })
   }
   //callback - функция
-  let formDataResult;
   createCalcForm().then(formData => {
     formDataResult = formData;
     createResultDiv(formDataResult);
-    rasrohVCredit(formDataResult);
+
     let dolgN = calculateCredit(formDataResult.danoCreditCredit, formDataResult.danoCreditPercentages, formDataResult.danoCreditTermCredit, formDataResult.danoCreditExtraPayment);
     let dolgN__com = calculateCredit(formDataResult.creditTwoCredit, formDataResult.creditTwoPercentages, formDataResult.creditTwoTermCredit, formDataResult.creditTwoExtraPayment);
-    return { dolgN, dolgN__com };
 
-  }).then(({ dolgN, dolgN__com }) => {
-    const heroSection1 = document.getElementById('hero');
-   
-    const resultDiv = document.createElement('div');
-    resultDiv.className = 'result-div';
-    heroSection1.appendChild(resultDiv);
-    // Создаем параграфы для вывода данных
-    let summCredi = document.createElement('p');
-    summCredi.classList.add(`hero__text`);
-    summCredi.textContent = `платеж по кредиту равен ${dolgN[0].payment}`;
-    resultDiv.appendChild(summCredi);
-    // Создаем параграфы для вывода данных common
-    let summCredi__com = document.createElement('p');
-    summCredi__com.classList.add(`hero__text`);
-    summCredi__com.textContent = `платеж по рассрочке равен ${dolgN__com[0].payment}`;
-    resultDiv.appendChild(summCredi__com);
+    {
+      const heroSection1 = document.getElementById('hero');
+      const resultDiv = document.createElement('div');
+      resultDiv.className = 'result__div__pay';
+      heroSection1.appendChild(resultDiv);
+
+      // Создаем параграфы для вывода данных
+      let summCredi = document.createElement('p');
+      summCredi.classList.add(`text`, `text__pay`);
+      summCredi.textContent = `платеж по кредиту равен ${dolgN[0].payment}`;
+      resultDiv.appendChild(summCredi);
+
+      // Создаем параграфы для вывода данных common
+      let summCredi__com = document.createElement('p');
+      summCredi__com.classList.add(`text`, `text__pay`);
+      summCredi__com.textContent = `платеж по рассрочке равен ${dolgN__com[0].payment}`;
+      resultDiv.appendChild(summCredi__com);
+    }
+    let rasVCre = rasrohVCredit(formDataResult);
+    let dolgNResults = debtBurden(rasVCre, dolgN__com);
+
+
+    // Теперь вызываем функции createResultDiv и rasrohVCredit
+
 
   });
   // Создаем функцию, которая создает div элемент для отображения данных
@@ -139,7 +145,9 @@
       heroSection1.removeChild(oldResultDivContainer);
     }
 
+    // Добавляем div элемент к элементу с id "hero"
 
+    const heroSection = document.getElementById('hero');
     // Создаем новый div элемент
     const resultDivContainer = document.createElement('div');
     resultDivContainer.className = 'result-div-container flex';
@@ -151,76 +159,71 @@
     const resultDiv__com = document.createElement('div');
     resultDiv__com.className = 'result-div result-div-com';
     resultDivContainer.appendChild(resultDiv__com);
-
+    heroSection.appendChild(resultDivContainer);
 
     // Создаем параграфы для вывода данных
 
     const text = document.createElement('p');
-    text.classList.add(`hero__text`, `hero__subtitle`);
+    text.classList.add(`text`, `hero__subtitle`);
     text.textContent = `Ваш кредит:`;
 
-    let summCreditP = document.createElement('p');
-    summCreditP.classList.add(`hero__text`);
-    summCreditP.textContent = `Сумма кредита: ${danoCredit.danoCreditCredit}`;
+    let summCredit = document.createElement('p');
+    summCredit.classList.add(`text`, `text__div`);
+    summCredit.textContent = `Сумма кредита: ${danoCredit.danoCreditCredit}`;
 
-    let percentagesP = document.createElement('p');
-    percentagesP.classList.add(`hero__text`);
-    percentagesP.textContent = `Процентная ставка: ${danoCredit.danoCreditPercentages}%`;
+    let percentages = document.createElement('p');
+    percentages.classList.add(`text`, `text__div`);
+    percentages.textContent = `Процентная ставка: ${danoCredit.danoCreditPercentages}%`;
 
-    let termCreditP = document.createElement('p');
-    termCreditP.classList.add(`hero__text`);
-    termCreditP.textContent = `Срок: ${danoCredit.danoCreditTermCredit} месяцев`;
+    let termCredit = document.createElement('p');
+    termCredit.classList.add(`text`, `text__div`);
+    termCredit.textContent = `Срок: ${danoCredit.danoCreditTermCredit} месяцев`;
 
-    let extraPaymentP = document.createElement('p');
-    extraPaymentP.classList.add(`hero__text`);
-    extraPaymentP.textContent = `Досрочное погашение: ${danoCredit.danoCreditExtraPayment}`;
+    let extraPayment = document.createElement('p');
+    extraPayment.classList.add(`text`, `text__div`);
+    extraPayment.textContent = `Досрочное погашение: ${danoCredit.danoCreditExtraPayment}`;
 
     //common
 
     let text__com = document.createElement('p');
-    text__com.classList.add(`hero__text`, `hero__subtitle`);
+    text__com.classList.add(`text`, `hero__subtitle`);
     text__com.textContent = `Ваша рассрочка:`;
 
-    let summCreditP__com = document.createElement('p');
-    summCreditP__com.classList.add(`hero__text`);
-    summCreditP__com.textContent = `Сумма кредита: ${danoCredit.creditTwoCredit}`;
+    let summCredit__com = document.createElement('p');
+    summCredit__com.classList.add(`text`, `text__div`);
+    summCredit__com.textContent = `Сумма кредита: ${danoCredit.creditTwoCredit}`;
 
-    let percentagesP__com = document.createElement('p');
-    percentagesP__com.classList.add(`hero__text`);
-    percentagesP__com.textContent = `Процентная ставка: ${danoCredit.creditTwoPercentages}%`;
+    let percentages__com = document.createElement('p');
+    percentages__com.classList.add(`text`, `text__div`);
+    percentages__com.textContent = `Процентная ставка: ${danoCredit.creditTwoPercentages}%`;
 
-    let termCreditP__com = document.createElement('p');
-    termCreditP__com.classList.add(`hero__text`);
-    termCreditP__com.textContent = `Срок: ${danoCredit.creditTwoTermCredit} месяцев`;
+    let termCredit__com = document.createElement('p');
+    termCredit__com.classList.add(`text`, `text__div`);
+    termCredit__com.textContent = `Срок: ${danoCredit.creditTwoTermCredit} месяцев`;
 
-    let extraPaymentP__com = document.createElement('p');
-    extraPaymentP__com.classList.add(`hero__text`);
-    extraPaymentP__com.textContent = `Досрочное погашение: ${danoCredit.creditTwoExtraPayment}`;
+    let extraPayment__com = document.createElement('p');
+    extraPayment__com.classList.add(`text`, `text__div`);
+    extraPayment__com.textContent = `Досрочное погашение: ${danoCredit.creditTwoExtraPayment}`;
 
 
     // Добавляем параграфы к div элементу
     resultDiv.appendChild(text);
-    resultDiv.appendChild(summCreditP);
-    resultDiv.appendChild(percentagesP);
-    resultDiv.appendChild(termCreditP);
-    resultDiv.appendChild(extraPaymentP);
+    resultDiv.appendChild(summCredit);
+    resultDiv.appendChild(percentages);
+    resultDiv.appendChild(termCredit);
+    resultDiv.appendChild(extraPayment);
 
     // Добавляем параграфы common к div элементу
     resultDiv__com.appendChild(text__com);
-    resultDiv__com.appendChild(summCreditP__com);
-    resultDiv__com.appendChild(percentagesP__com);
-    resultDiv__com.appendChild(termCreditP__com);
-    resultDiv__com.appendChild(extraPaymentP__com);
+    resultDiv__com.appendChild(summCredit__com);
+    resultDiv__com.appendChild(percentages__com);
+    resultDiv__com.appendChild(termCredit__com);
+    resultDiv__com.appendChild(extraPayment__com);
 
 
-    // Получаем элемент с id "hero"
-    const heroSection = document.getElementById('hero');
 
-    // Добавляем div элемент к элементу с id "hero"
-    heroSection.appendChild(resultDivContainer);
 
   }
-
 
   //Функция для подсчета кредита 
   function calculateCredit(credit, percentages, termCredit, extraPayment) {
@@ -280,93 +283,159 @@
 
     return monthlyPaymentArray;
   }
-
-
-  // Добавляем параграф к div элементу
-  resultDiv.appendChild(summCredi);
-  if (danoCredit.extraPayment > 0) {
-    let summCredi1 = document.createElement('p');
-    summCredi1.classList.add(`hero__text`);
-    summCredi1.textContent = `при досрочном погашении вы загасите кредит через ${dolgN.length} месяцев`;
-    resultDiv.appendChild(summCredi1);
-  }
-
-  //common
-  // Добавляем параграф к div элементу
-  resultDiv__com.appendChild(summCredi__com);
-  if (creditTwo.extraPayment > 0) {
-    let summCredi1__com = document.createElement('p');
-    summCredi1__com.classList.add(`hero__text`);
-    summCredi1__com.textContent = `при досрочном погашении вы загасите рассрочку через ${dolgN__com.length} месяцев`;
-    resultDiv__com.appendChild(summCredi1__com);
-  };
-
-  console.log('-----------------------------------Если мы деньги с рассрочки кидаем в кредит то----------------------------------');
-
+  //Функция для создания таблицы
   function rasrohVCredit() {
-
     let rasVCre = calculateCredit(formDataResult.danoCreditCredit, formDataResult.danoCreditPercentages, formDataResult.danoCreditTermCredit, formDataResult.creditTwoCredit);
-    for (let i = 0; i <= rasVCre.length - 1; i++) {
-      if (i in rasVCre) {
-        console.log(`${rasVCre[i].month} | ${rasVCre[i].payment}`);
+
+    const heroSection2 = document.getElementById('hero');
+    // Таблица
+    const table = document.createElement('table');
+    table.className = 'table table__v__credit';
+    heroSection2.appendChild(table);
+
+    const tableHead = document.createElement('thead');
+    table.appendChild(tableHead);
+
+    const tableHeadRow = document.createElement('tr');
+    tableHead.appendChild(tableHeadRow);
+
+    const tableHeadCells = ['Месяц', 'Платеж', 'Процент', 'Основной долг', 'Дополнительный платеж', 'Остаток'];
+    for (let i = 0; i < tableHeadCells.length; i++) {
+      const tableHeadCell = document.createElement('th');
+      tableHeadCell.textContent = tableHeadCells[i];
+      tableHeadRow.appendChild(tableHeadCell);
+    }
+
+    const tableBody = document.createElement('tbody');
+    table.appendChild(tableBody);
+
+    for (let i = 0; i < rasVCre.length; i++) {
+      const tableRow = document.createElement('tr');
+      tableBody.appendChild(tableRow);
+
+      const tableCells = [
+        rasVCre[i].month,
+        rasVCre[i].payment,
+        rasVCre[i].interest,
+        rasVCre[i].principal,
+        rasVCre[i].extraPayment,
+        rasVCre[i].balance
+      ];
+
+      for (let j = 0; j < tableCells.length; j++) {
+        const tableCell = document.createElement('td');
+        tableCell.textContent = tableCells[j];
+        tableRow.appendChild(tableCell);
       }
     };
-    return rasVCre;
 
+    const resultDiv2 = document.createElement('div');
+    resultDiv2.className = 'result__div__pay';
+    heroSection2.appendChild(resultDiv2);
+
+    let summCrediTab = document.createElement('p');
+    summCrediTab.classList.add(`text`, `text__v__credit`);
+    summCrediTab.textContent = `вы гасите кредит за ${Number(rasVCre.length)} месяцев`;
+    resultDiv2.appendChild(summCrediTab);
+
+    let summCrediTabCom = document.createElement('p');
+    summCrediTabCom.classList.add(`text`, `text__v__credit`);
+    summCrediTabCom.textContent = `с учетом того что каждый месяц мы будем брать рассрочку на ${formDataResult.creditTwoCredit} и вкидывать ее в кредит`;
+    resultDiv2.appendChild(summCrediTabCom);
+
+    return rasVCre; // Resolve the promise with the result
+  }
+
+  //Функция долговой нагрузки
+  function debtBurden(rasVCre, dolgN__com) {
+    //создаем div
+    const heroSection3 = document.getElementById('hero');
+    const resultDiv3 = document.createElement('div');
+    resultDiv3.className = 'result__div__pay';
+    heroSection3.appendChild(resultDiv3);
+
+    // Создаем параграфы для вывода данных
+    let debtBurden = document.createElement('h2');
+    debtBurden.classList.add(`text`, `hero__subtitle`);
+    debtBurden.textContent = `Долговая нагрузка`;
+    resultDiv3.appendChild(debtBurden);
+
+
+    // Создаем таблицу
+    let table = document.createElement('table');
+    table.className = 'table table__debtBurden';
+    resultDiv3.appendChild(table);
+
+    // Создаем заголовок таблицы
+    let thead = document.createElement('thead');
+    table.appendChild(thead);
+    let tr = document.createElement('tr');
+    thead.appendChild(tr);
+    let th1 = document.createElement('th');
+    th1.textContent = 'Месяц';
+    tr.appendChild(th1);
+    let th2 = document.createElement('th');
+    th2.textContent = 'Долговая нагрузка';
+    tr.appendChild(th2);
+
+    // Создаем тело таблицы
+    let tbody = document.createElement('tbody');
+    table.appendChild(tbody);
+
+    let dolgNResults = [];
+    let accumulatedExtraPayment = 0; // переменная для накопления extraPayment
+
+    for (let i = 0; i < Math.max(dolgN__com.length, rasVCre.length); i++) {
+      let dolgNRassPayment = i < dolgN__com.length ? Number(dolgN__com[i].payment) : 0;
+      let rasVCrePayment = i < rasVCre.length ? Number(rasVCre[i].payment) : 0;
+      let extraPayment = dolgN__com[0].payment; // добавляем ежемесячную рассрочку
+      accumulatedExtraPayment += extraPayment; // накапливаем extraPayment
+      let dolgNResult = dolgNRassPayment + rasVCrePayment + accumulatedExtraPayment;
+      if (i > formDataResult.creditTwoTermCredit) {
+        accumulatedExtraPayment -= extraPayment;
+      }
+
+      if (i === 0) {
+        dolgNResult = rasVCrePayment + extraPayment;
+      } else {
+        dolgNResult = dolgNRassPayment + rasVCrePayment + accumulatedExtraPayment - extraPayment;
+      }
+      let month = i + 1;
+
+      // Создаем строку таблицы
+      let tr = document.createElement('tr');
+      tbody.appendChild(tr);
+      let td1 = document.createElement('td');
+      td1.textContent = month;
+      tr.appendChild(td1);
+      let td2 = document.createElement('td');
+      td2.textContent = dolgNResult.toFixed(2);
+      tr.appendChild(td2);
+
+      dolgNResults.push({
+        dolgNResult: dolgNResult.toFixed(2),
+        month: month,
+      });
+    };
+
+    let debtBurden2 = document.createElement('p');
+    debtBurden2.classList.add(`text`, `text__debt__burden`);
+    debtBurden2.textContent = `Долговая нагрузка`;
+    resultDiv3.appendChild(debtBurden2);
+    
+    let debtBurden3 = document.createElement('p');
+    debtBurden3.classList.add(`text`, `text__debt__burden`);
+    debtBurden3.textContent = `долговая нагрузка будет ${dolgNResults.length} месяца`;
+    resultDiv3.appendChild(debtBurden3);
+
+    let debtBurden4 = document.createElement('p');
+    debtBurden4.classList.add(`text`, `text__debt__burden`);
+    debtBurden4.textContent = `конечный платеж будет равен X этот платеж будет сроком на X месяцев который 
+   будет ежемесячно уменьшаться на X рублей. Наша максимальная долговая нагрузка будет равна X`;
+    resultDiv3.appendChild(debtBurden4);
+
+    return dolgNResults;
   };
-
-  let rasVCre = rasrohVCredit();
-
-
-  console.log(`вы гасите кредит за ${Number(rasVCre.length)} месяцев`);
-  console.log(`с учетом того что каждый месяц мы будем брать рассрочку на ${creditTwo.credit} и вкидывать ее в кредит`);
-
-  //   console.log('-----------------------------------Долговая нагрузка----------------------------------');
-
-
-  //   console.log(`Наша долговая нагрузка меняется ежемесячно на сумму ежемесячной рассрочки ${dolgNRass[0].payment}`);
-
-  //   function dolgNRassFun() {
-  //     let dolgNResults = [];
-  //     let accumulatedExtraPayment = 0; // переменная для накопления extraPayment
-
-
-  //     for (let i = 0; i < Math.max(dolgNRass.length, rasVCre.length); i++) {
-
-  //       let dolgNRassPayment = i < dolgNRass.length ? Number(dolgNRass[i].payment) : 0;
-  //       let rasVCrePayment = i < rasVCre.length ? Number(rasVCre[i].payment) : 0;
-  //       let extraPayment = dolgNRass[0].payment; // добавляем ежемесячную рассрочку
-  //       accumulatedExtraPayment += extraPayment; // накапливаем extraPayment
-  //       let dolgNResult = dolgNRassPayment + rasVCrePayment + accumulatedExtraPayment;
-  //       if (i > creditTwo.termCredit) {
-  //         accumulatedExtraPayment -= extraPayment;
-  //       }
-
-  //       if (i === 0) {
-  //         dolgNResult = rasVCrePayment + extraPayment;
-  //       } else {
-  //         dolgNResult = dolgNRassPayment + rasVCrePayment + accumulatedExtraPayment - extraPayment;
-  //       }
-  //       let month = i + 1;
-  //       dolgNResults.push({
-  //         dolgNResult: dolgNResult.toFixed(2),
-  //         month: month,
-  //       });
-  //     };
-
-  //     return dolgNResults;
-  //   };
-
-  //   let dolgNResults = dolgNRassFun();
-  //   console.log(`платежи: `)
-  //   dolgNResults.forEach(result => console.log(`Месяц ${result.month}: ${result.dolgNResult}`));
-  //   console.log(`долговая нагрузка будет ${dolgNResults.length} месяца`);
-  //   console.log(`конечный платеж будет равен ${dolgNResults[dolgNResults.length - 1].dolgNResult} этот платеж будет сроком на ${creditTwo.termCredit} месяцев который 
-  // будет ежемесячно уменьшаться на ${dolgNRass[0].payment}рублей. Наша максимальная долговая нагрузка будет равна ${Math.max(...dolgNResults.map(result => Number(result.dolgNResult)))}`);
-
-
-
-
 
 
 })();

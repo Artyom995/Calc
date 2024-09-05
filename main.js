@@ -72,7 +72,7 @@ console.log('Вы загасите кредит через ' + dolgN.length + " 
 
 console.log('-----------------------------------Рассрочка----------------------------------');
 let creditTwo = {
-  amount: 5000,
+  amount: 10000,
   termTwo: 6,
   percentages: 0,
   extraPayment: 0,

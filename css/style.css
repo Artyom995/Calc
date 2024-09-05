@@ -78,7 +78,7 @@ ul {
   width: 50%;
   margin-bottom: 10px;
 }
-.hero__text{
+.text{
   color: var(--text-color);
 }
 
@@ -89,4 +89,23 @@ ul {
 .hero__subtitle {
   font-size: 36px;
   color: var(--black-color);
+}
+.hero__text__pay {
+  color: black;
+}
+
+/* Таблица  */
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f0f0f0;
 }
