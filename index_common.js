@@ -13,7 +13,7 @@
       { id: 'summ__credit', value: '300000' },
       { id: 'percentages', value: '30' },
       { id: 'termCredit', value: '60' },
-      { id: 'extraPayment', value: '0' }
+    
     ];
     const inputs__com = [
       { id: 'summ__credit__com', value: '10000' },
@@ -39,12 +39,11 @@
     const summCreditInput = document.getElementById('summ__credit');
     const percentagesInput = document.getElementById('percentages');
     const termCreditInput = document.getElementById('termCredit');
-    const extraPaymentInput = document.getElementById('extraPayment');
+
 
     const summCreditInput__com = document.getElementById('summ__credit__com');
     const percentagesInput__com = document.getElementById('percentages__com');
     const termCreditInput__com = document.getElementById('termCredit__com');
-    const extraPaymentInput__com = document.getElementById('extraPayment__com');
 
     // Добавляем обработчик события клика на кнопку
 
@@ -88,14 +87,14 @@
         const summCreditValue = parseFloat(summCreditInput.value);
         const percentagesValue = parseFloat(percentagesInput.value);
         const termCreditValue = parseFloat(termCreditInput.value);
-        const extraPaymentValue = parseFloat(extraPaymentInput.value);
+
 
         const summCreditValue__com = parseFloat(summCreditInput__com.value);
         const percentagesValue__com = parseFloat(percentagesInput__com.value);
         const termCreditValue__com = parseFloat(termCreditInput__com.value);
 
         // Проверяем данные
-        if (summCreditValue <= 0 || percentagesValue < 0 || termCreditValue <= 0 || extraPaymentValue < 0) {
+        if (summCreditValue <= 0 || percentagesValue < 0 || termCreditValue <= 0 ) {
           // Создаем новый div элемент
           const resultDiv = document.createElement('div');
           resultDiv.className = 'result-div';
@@ -124,7 +123,7 @@
           danoCreditCredit: parseFloat(summCreditInput.value),
           danoCreditPercentages: parseFloat(percentagesInput.value),
           danoCreditTermCredit: parseFloat(termCreditInput.value),
-          danoCreditExtraPayment: parseFloat(extraPaymentInput.value),
+
 
           creditTwoCredit: parseFloat(summCreditInput__com.value),
           creditTwoPercentages: parseFloat(percentagesInput__com.value),
@@ -137,8 +136,8 @@
   createCalcForm().then(formData => {
     formDataResult = formData;
     createResultDiv(formDataResult);
-    let dolgN = calculateCredit(formDataResult.danoCreditCredit, formDataResult.danoCreditPercentages, formDataResult.danoCreditTermCredit, formDataResult.danoCreditExtraPayment);
-    let dolgN__com = calculateCredit(formDataResult.creditTwoCredit, formDataResult.creditTwoPercentages, formDataResult.creditTwoTermCredit, formDataResult.creditTwoExtraPayment);
+    let dolgN = calculateCredit(formDataResult.danoCreditCredit, formDataResult.danoCreditPercentages, formDataResult.danoCreditTermCredit, 0);
+    let dolgN__com = calculateCredit(formDataResult.creditTwoCredit, formDataResult.creditTwoPercentages, formDataResult.creditTwoTermCredit, 0);
 
     {
       const heroSection1 = document.getElementById('hero');
@@ -202,9 +201,6 @@
     termCredit.classList.add(`text`, `text__div`);
     termCredit.textContent = `Срок: ${danoCredit.danoCreditTermCredit} месяцев`;
 
-    let extraPayment = document.createElement('p');
-    extraPayment.classList.add(`text`, `text__div`);
-    extraPayment.textContent = `Досрочное погашение: ${danoCredit.danoCreditExtraPayment}`;
 
     //common
 
@@ -231,7 +227,7 @@
     resultDiv.appendChild(summCredit);
     resultDiv.appendChild(percentages);
     resultDiv.appendChild(termCredit);
-    resultDiv.appendChild(extraPayment);
+
 
     // Добавляем параграфы common к div элементу
     resultDiv__com.appendChild(text__com);
