@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-BoldItalic.eot');
+    src: local('Sometype Mono Bold Italic'), local('SometypeMono-BoldItalic'),
+        url('SometypeMono-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-BoldItalic.woff2') format('woff2'),
+        url('SometypeMono-BoldItalic.woff') format('woff'),
+        url('SometypeMono-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-Bold.eot');
+    src: local('Sometype Mono Bold'), local('SometypeMono-Bold'),
+        url('SometypeMono-Bold.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-Bold.woff2') format('woff2'),
+        url('SometypeMono-Bold.woff') format('woff'),
+        url('SometypeMono-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-Italic.eot');
+    src: local('Sometype Mono Italic'), local('SometypeMono-Italic'),
+        url('SometypeMono-Italic.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-Italic.woff2') format('woff2'),
+        url('SometypeMono-Italic.woff') format('woff'),
+        url('SometypeMono-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-SemiBoldItalic.eot');
+    src: local('Sometype Mono SemiBold Italic'), local('SometypeMono-SemiBoldItalic'),
+        url('SometypeMono-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-SemiBoldItalic.woff2') format('woff2'),
+        url('SometypeMono-SemiBoldItalic.woff') format('woff'),
+        url('SometypeMono-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-MediumItalic.eot');
+    src: local('Sometype Mono Medium Italic'), local('SometypeMono-MediumItalic'),
+        url('SometypeMono-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-MediumItalic.woff2') format('woff2'),
+        url('SometypeMono-MediumItalic.woff') format('woff'),
+        url('SometypeMono-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-SemiBold.eot');
+    src: local('Sometype Mono SemiBold'), local('SometypeMono-SemiBold'),
+        url('SometypeMono-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-SemiBold.woff2') format('woff2'),
+        url('SometypeMono-SemiBold.woff') format('woff'),
+        url('SometypeMono-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-Medium.eot');
+    src: local('Sometype Mono Medium'), local('SometypeMono-Medium'),
+        url('SometypeMono-Medium.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-Medium.woff2') format('woff2'),
+        url('SometypeMono-Medium.woff') format('woff'),
+        url('SometypeMono-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sometype Mono';
+    src: url('SometypeMono-Regular.eot');
+    src: local('Sometype Mono Regular'), local('SometypeMono-Regular'),
+        url('SometypeMono-Regular.eot?#iefix') format('embedded-opentype'),
+        url('SometypeMono-Regular.woff2') format('woff2'),
+        url('SometypeMono-Regular.woff') format('woff'),
+        url('SometypeMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

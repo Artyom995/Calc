@@ -1,7 +1,54 @@
 :root {
+  --ligth_white-color: #FBFBFB;
   --black-color: #121723;
   --text-color: #c73d7e;
+
+  --font-Regular: 'Sometype Mono Regular', fallback, sans-serif;
+  --font-medium: 'Sometype Mono Medium', fallback, sans-serif;
+  --font-Bold: 'Sometype Mono Bold', fallback, sans-serif;
+  --font-Italic: 'Sometype Mono Italic', fallback, sans-serif;
+
 }
+
+@font-face {
+  font-family: 'Sometype Mono Regular';
+  src: local('Sometype Mono Regular'), local('SometypeMono-Regular'),
+    url('../font/SometypeMono-Regular.woff2') format('woff2'),
+    url('../font/SometypeMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sometype Mono Medium';
+  src: local('Sometype Mono Medium'), local('SometypeMono-Medium'),
+    url('../font/SometypeMono-Medium.woff2') format('woff2'),
+    url('../font/SometypeMono-Medium.woff') format('woff');
+  font-weight: 500;
+  ;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sometype Mono Bold';
+  src: local('Sometype Mono Bold'), local('SometypeMono-Bold'),
+    url('../font/SometypeMono-Bold.woff2') format('woff2'),
+    url('../font/SometypeMono-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sometype Mono Italic';
+  src: local('Sometype Mono Italic'), local('SometypeMono-Italic'),
+    url('../font/SometypeMono-Italic.woff') format('woff2'),
+    url('../font/SometypeMono-Italic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+
 
 html {
   box-sizing: border-box;
@@ -30,6 +77,25 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+  width: fit-content;
+}
+
+body {
+  font-family: var(--font-Regular);
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -40,45 +106,131 @@ ul {
   flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .container {
-  padding: 15px;
+  padding: 0 30px;
 }
+
+.header__container {
+  padding: 0px 144px;
+  align-items: center;
+}
+
 .header {
-  max-width: 1920px;
-  background-color: aquamarine;
-  height: 60px;
-  padding: 15px;
+  background-color: var(--ligth_white-color);
+  box-shadow: 0 5px 57px 0 rgba(0, 0, 0, 0.1);
+  height: 85px;
   margin-bottom: 30px;
+  padding: 30px 0;
 }
+
+.logo {
+  margin-right: auto;
+}
+
+.header__nav {
+  margin-right: auto;
+}
+
+
+
 .main {
-  background-color: grey;
-  padding: 30px;
+  background-color: var(--ligth_white-color);
+  padding: 0 144px;
 }
-.hero {
+
+/* hero */
+.hero__container {
+  gap: 30px;
+}
+
+.hero__picture {
+  width: 48%;
+}
+
+.hero__title {
+  font-size: 85px;
+  font-family: var(--font-Bold);
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: auto;
+}
+
+.sp__2 {
+  padding-left: 210px;
+
+}
+
+.sp__3 {
+  padding-left: 80px;
+}
+
+.hero__list {
+  align-items: baseline;
+  gap: 92px;
+  width: 100%;
+  justify-content: center;
+}
+
+.hero__item {
+  position: relative;
+  padding: 22px 30px 30px 20px;
+  max-width: 210px;
+  height: 170px;
+  border: 5px solid black;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.hero__link {
+  height: 100%;
+  width: 100%;
+}
+.hero__subtitle {
+  margin-bottom: 10px;
+}
+.hero__icon {
+  position: absolute;
+  right: 8px;
+  top: 5px;
+}
+
+
+
+/* ---------------------------------------------- */
+.calc {
   background-color: blanchedalmond;
   padding: 15px;
 }
-.nav__list,
-.hero__list{
-  width: 100%;
-  justify-content: space-between;
+
+.nav__list {
+  gap: 144px;
 }
+
+
 .input__calculation {
   width: 100%;
 }
-.hero__form {
+
+.calc__form {
   width: 100%;
 }
-.hero__item {
+
+.calc__item {
   width: 50%;
 }
+
 .form__input {
   width: 50%;
   margin-bottom: 10px;
 }
-.text{
+
+.text {
   color: var(--text-color);
 }
 
@@ -86,11 +238,13 @@ ul {
 .result-div {
   width: 50%;
 }
-.hero__subtitle {
+
+.calc__subtitle {
   font-size: 36px;
   color: var(--black-color);
 }
-.hero__text__pay {
+
+.calc__text__pay {
   color: black;
 }
 
@@ -100,7 +254,8 @@ ul {
   width: 100%;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;

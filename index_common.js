@@ -1,7 +1,7 @@
 
 // Вы можете рассмотреть добавление некоторых обработок ошибок в функцию calculateCredit для обработки случаев, когда входные значения являются недопустимыми (например, отрицательная сумма кредита, процентная ставка или срок кредита).
 // Вы можете рассмотреть добавление форматирования к выходным значениям, например, округления их до двух десятичных знаков с помощью toFixed(2).
-// В функции createResultDiv вы создаете новый элемент resultDiv, но не добавляете его к элементу heroSection. Вы должны добавить heroSection.appendChild(resultDiv); в конце функции.
+// В функции createResultDiv вы создаете новый элемент resultDiv, но не добавляете его к элементу calcSection. Вы должны добавить calcSection.appendChild(resultDiv); в конце функции.
 // Вы можете рассмотреть добавление некоторых стилей CSS, чтобы сделать вывод более привлекательным.
 //danoCredit в первой функции стоит ли удалять?
 
@@ -35,7 +35,7 @@
   //callback - функция
   function createCalcForm() {
     // Получаем элементы
-    const form = document.getElementById('hero__form');
+    const form = document.getElementById('calc__form');
     const summCreditInput = document.getElementById('summ__credit');
     const percentagesInput = document.getElementById('percentages');
     const termCreditInput = document.getElementById('termCredit');
@@ -51,8 +51,8 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault(); // предотвратить стандартное действие браузера
         // Собираем данные из полей ввода
-        const heroSection1 = document.getElementById('hero');
-        const resultDivs = heroSection1.querySelectorAll('.result__div__pay,.result-div-container, .table');
+        const calcSection1 = document.getElementById('calc');
+        const resultDivs = calcSection1.querySelectorAll('.result__div__pay,.result-div-container, .table');
         resultDivs.forEach(div => div.remove());
 
 
@@ -63,10 +63,10 @@
           let dolgN__com = calculateCredit(formDataResult.creditTwoCredit, formDataResult.creditTwoPercentages, formDataResult.creditTwoTermCredit, 0);
       
           {
-            const heroSection1 = document.getElementById('hero');
+            const calcSection1 = document.getElementById('calc');
             const resultDiv = document.createElement('div');
             resultDiv.className = 'result__div__pay';
-            heroSection1.appendChild(resultDiv);
+            calcSection1.appendChild(resultDiv);
       
             // Создаем параграфы для вывода данных
             let summCredi = document.createElement('p');
@@ -140,10 +140,10 @@
     let dolgN__com = calculateCredit(formDataResult.creditTwoCredit, formDataResult.creditTwoPercentages, formDataResult.creditTwoTermCredit, 0);
 
     {
-      const heroSection1 = document.getElementById('hero');
+      const calcSection1 = document.getElementById('calc');
       const resultDiv = document.createElement('div');
       resultDiv.className = 'result__div__pay';
-      heroSection1.appendChild(resultDiv);
+      calcSection1.appendChild(resultDiv);
 
       // Создаем параграфы для вывода данных
       let summCredi = document.createElement('p');
@@ -167,9 +167,9 @@
   // Создаем функцию, которая создает div элемент для отображения данных
   function createResultDiv(danoCredit) {
 
-    // Добавляем div элемент к элементу с id "hero"
+    // Добавляем div элемент к элементу с id "calc"
 
-    const heroSection = document.getElementById('hero');
+    const calcSection = document.getElementById('calc');
     // Создаем новый div элемент
     const resultDivContainer = document.createElement('div');
     resultDivContainer.className = 'result-div-container flex';
@@ -181,12 +181,12 @@
     const resultDiv__com = document.createElement('div');
     resultDiv__com.className = 'result-div result-div-com';
     resultDivContainer.appendChild(resultDiv__com);
-    heroSection.appendChild(resultDivContainer);
+    calcSection.appendChild(resultDivContainer);
 
     // Создаем параграфы для вывода данных
 
     const text = document.createElement('p');
-    text.classList.add(`text`, `hero__subtitle`);
+    text.classList.add(`text`, `calc__subtitle`);
     text.textContent = `Ваш кредит:`;
 
     let summCredit = document.createElement('p');
@@ -205,7 +205,7 @@
     //common
 
     let text__com = document.createElement('p');
-    text__com.classList.add(`text`, `hero__subtitle`);
+    text__com.classList.add(`text`, `calc__subtitle`);
     text__com.textContent = `Ваша рассрочка:`;
 
     let summCredit__com = document.createElement('p');
@@ -298,11 +298,11 @@
   function rasrohVCredit() {
     let rasVCre = calculateCredit(formDataResult.danoCreditCredit, formDataResult.danoCreditPercentages, formDataResult.danoCreditTermCredit, formDataResult.creditTwoCredit);
 
-    const heroSection2 = document.getElementById('hero');
+    const calcSection2 = document.getElementById('calc');
     // Таблица
     const table = document.createElement('table');
     table.className = 'table table__v__credit';
-    heroSection2.appendChild(table);
+    calcSection2.appendChild(table);
 
     const tableHead = document.createElement('thead');
     table.appendChild(tableHead);
@@ -342,7 +342,7 @@
 
     const resultDiv2 = document.createElement('div');
     resultDiv2.className = 'result__div__pay';
-    heroSection2.appendChild(resultDiv2);
+    calcSection2.appendChild(resultDiv2);
 
     let summCrediTab = document.createElement('p');
     summCrediTab.classList.add(`text`, `text__v__credit`);
@@ -360,14 +360,14 @@
   //Функция долговой нагрузки
   function debtBurden(rasVCre, dolgN__com) {
     //создаем div
-    const heroSection3 = document.getElementById('hero');
+    const calcSection3 = document.getElementById('calc');
     const resultDiv3 = document.createElement('div');
     resultDiv3.className = 'result__div__pay';
-    heroSection3.appendChild(resultDiv3);
+    calcSection3.appendChild(resultDiv3);
 
     // Создаем параграфы для вывода данных
     let debtBurden = document.createElement('h2');
-    debtBurden.classList.add(`text`, `hero__subtitle`);
+    debtBurden.classList.add(`text`, `calc__subtitle`);
     debtBurden.textContent = `Долговая нагрузка`;
     resultDiv3.appendChild(debtBurden);
 
@@ -467,14 +467,14 @@
   //функция для Ежемесячной разницы долговой нагрузки
   function results(formDataResult, dolgN, dolgN__com, rasVCre, dolgNResults) {
 
-    const heroSection4 = document.getElementById('hero');
+    const calcSection4 = document.getElementById('calc');
     const resultDiv4 = document.createElement('div');
     resultDiv4.className = 'result__div__pay';
-    heroSection4.appendChild(resultDiv4);
+    calcSection4.appendChild(resultDiv4);
 
     // Создаем параграфы для вывода данных
     let results = document.createElement('h2');
-    results.classList.add(`text`, `hero__subtitle`);
+    results.classList.add(`text`, `calc__subtitle`);
     results.textContent = `Итоги:`;
     resultDiv4.appendChild(results);
 
