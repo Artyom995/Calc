@@ -1,52 +1,25 @@
 :root {
   --ligth_white-color: #FBFBFB;
+  --ligth_gray-color:#f5f5f5;;
+  --ligth_gray_border-color:#bcbbbb;
   --black-color: #121723;
   --text-color: #c73d7e;
 
-  --font-Regular: 'Sometype Mono Regular', fallback, sans-serif;
-  --font-medium: 'Sometype Mono Medium', fallback, sans-serif;
-  --font-Bold: 'Sometype Mono Bold', fallback, sans-serif;
-  --font-Italic: 'Sometype Mono Italic', fallback, sans-serif;
+
+  --font-Regular: 'ZenKurenaido-Regular', fallback, sans-serif;
+
 
 }
 
 @font-face {
-  font-family: 'Sometype Mono Regular';
-  src: local('Sometype Mono Regular'), local('SometypeMono-Regular'),
-    url('../font/SometypeMono-Regular.woff2') format('woff2'),
-    url('../font/SometypeMono-Regular.woff') format('woff');
+  font-family: 'ZenKurenaido-Regular';
+  src: local('ZenKurenaido-Regular'), local('ZenKurenaido-Regular'),
+    url('../font/ZenKurenaido-Regular.woff2') format('woff2'),
+    url('../font/ZenKurenaido-Regular.woff') format('woff');
   font-weight: 400;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Sometype Mono Medium';
-  src: local('Sometype Mono Medium'), local('SometypeMono-Medium'),
-    url('../font/SometypeMono-Medium.woff2') format('woff2'),
-    url('../font/SometypeMono-Medium.woff') format('woff');
-  font-weight: 500;
-  ;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Sometype Mono Bold';
-  src: local('Sometype Mono Bold'), local('SometypeMono-Bold'),
-    url('../font/SometypeMono-Bold.woff2') format('woff2'),
-    url('../font/SometypeMono-Bold.woff') format('woff');
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Sometype Mono Italic';
-  src: local('Sometype Mono Italic'), local('SometypeMono-Italic'),
-    url('../font/SometypeMono-Italic.woff') format('woff2'),
-    url('../font/SometypeMono-Italic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
 
 
 
@@ -84,11 +57,12 @@ h2,
 h3 {
   margin: 0;
   width: fit-content;
+  font-family: var(--font-Regular);
 }
 
 body {
   font-family: var(--font-Regular);
-  font-size: 16px;
+  font-size: 22px;
   overflow-x: hidden;
 }
 
@@ -144,6 +118,7 @@ section {
 /* hero */
 .hero__container {
   gap: 30px;
+  margin-bottom: 80px;
 }
 
 .hero__picture {
@@ -152,8 +127,7 @@ section {
 
 .hero__title {
   font-size: 85px;
-  font-family: var(--font-Bold);
-  font-weight: 400;
+  font-weight: 700;
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -193,6 +167,7 @@ section {
 }
 .hero__subtitle {
   margin-bottom: 10px;
+  max-width: 160px;
 }
 .hero__icon {
   position: absolute;
@@ -200,13 +175,24 @@ section {
   top: 5px;
 }
 
+/* calc */
 
-
-/* ---------------------------------------------- */
 .calc {
-  background-color: blanchedalmond;
-  padding: 15px;
+  box-shadow: 1px 24px 24px -2px rgba(0, 0, 0, 0.1);
 }
+.calc__container {
+  background-color: var(--ligth_gray-color);
+  padding: 15px 30px;
+  border-bottom: 1px solid var(--ligth_gray_border-color);
+}
+.calc__nav {
+  font-weight: 700;
+  font-size: 20px;
+  padding: 20px;
+  border-bottom: 1px solid var(--ligth_gray_border-color);
+}
+
+
 
 .nav__list {
   gap: 144px;
@@ -219,6 +205,8 @@ section {
 
 .calc__form {
   width: 100%;
+  padding: 15px;
+  background-color: var(--ligth_gray-color);
 }
 
 .calc__item {
@@ -231,8 +219,10 @@ section {
 }
 
 .text {
-  color: var(--text-color);
+  color: var(--black-color);
 }
+
+/* ---------------------------------------------- */
 
 /* js элементы  */
 .result-div {
@@ -242,8 +232,14 @@ section {
 .calc__subtitle {
   font-size: 36px;
   color: var(--black-color);
+  margin-bottom: 10px;
 }
-
+.result__div__pay,
+.result-div-container,.table
+ {
+background-color: var(--ligth_gray-color);
+padding: 45px;
+ }
 .calc__text__pay {
   color: black;
 }
