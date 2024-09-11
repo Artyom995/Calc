@@ -300,9 +300,12 @@
 
     const calcSection2 = document.getElementById('calc');
     // Таблица
+    const resultDiv1 = document.createElement('div');
+resultDiv1.className = 'result__div__pay';
+calcSection2.appendChild(resultDiv1);
     const table = document.createElement('table');
     table.className = 'table table__v__credit';
-    calcSection2.appendChild(table);
+    resultDiv1.appendChild(table);
 
     const tableHead = document.createElement('thead');
     table.appendChild(tableHead);

@@ -69,6 +69,11 @@ body {
 section {
   margin-bottom: 80px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 .flex {
   display: -webkit-box;
@@ -101,6 +106,7 @@ section {
 }
 
 .logo {
+  fill: var(--black-color);
   margin-right: auto;
 }
 
@@ -126,19 +132,23 @@ section {
 }
 
 .hero__title {
-  font-size: 85px;
   font-weight: 700;
   display: flex;
   flex-direction: column;
   width: 50%;
   margin-left: auto;
 }
+.hero__title__span {
+  font-size: 85px;
+  transition: all 0.4s ease-in-out;
+}
+.hero__title__span:hover {
+font-size: 100px;
+}
 
 .sp__2 {
   padding-left: 210px;
-
 }
-
 .sp__3 {
   padding-left: 80px;
 }
@@ -152,27 +162,34 @@ section {
 
 .hero__item {
   position: relative;
-  padding: 22px 30px 30px 20px;
-  max-width: 210px;
-  height: 170px;
   border: 5px solid black;
+  padding: 34px 40px 30px 20px;
+  max-width: 210px;
+  height: 190px;
+
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+.hero__link:hover svg {
+  right: 10px;
+  top: 10px;
 }
 
-.hero__link {
-  height: 100%;
-  width: 100%;
-}
+
 .hero__subtitle {
   margin-bottom: 10px;
   max-width: 160px;
 }
 .hero__icon {
   position: absolute;
-  right: 8px;
-  top: 5px;
+  right: 40px;
+  top: 30px;
+  fill: var(--black-color);
+  transition: all 0.3s ease-in-out;
+
 }
 
 /* calc */
@@ -192,36 +209,81 @@ section {
   border-bottom: 1px solid var(--ligth_gray_border-color);
 }
 
-
-
 .nav__list {
   gap: 144px;
-}
-
-
-.input__calculation {
-  width: 100%;
-}
-
-.calc__form {
-  width: 100%;
-  padding: 15px;
-  background-color: var(--ligth_gray-color);
 }
 
 .calc__item {
   width: 50%;
 }
 
-.form__input {
-  width: 50%;
-  margin-bottom: 10px;
-}
 
 .text {
   color: var(--black-color);
 }
 
+/* form */
+.form{
+  padding: 15px;
+}
+.form__container {
+  width: 75%;
+  padding: 15px 0;
+  background-color: var(--ligth_gray-color);
+  justify-content: space-between;
+}
+.form__input {
+  width: 43%;
+  margin-bottom: 10px;
+}
+.input__form__calc {
+  width: 165px;
+  border-radius: 8px;
+  padding: 2px 7px; 
+  transition: all .3s ease-in-out;
+  outline: none;
+}
+
+.calc__input {
+  position: relative;
+  outline: none;
+  transition: all .3s ease-in-out;
+}
+.calc__input:hover {
+box-shadow: 0 0 35px hsla(0, 0%, 9%, 0.3);
+}
+
+.input__svg {
+  position: absolute;
+  width: 23px;
+  height: 22px;
+  right: 2px;
+  top: 4px;
+  fill: var(--black-color);
+  transition: .25s;
+}
+.form__subtitle {
+  margin-bottom: 10px;
+}
+
+.input__div {
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+
+
+/* footer */
+.footer {
+  background-color: var(--black-color);
+  height: 200px;
+
+}
+.footer__social-svg1,
+.footer__social-svg2,
+.footer__social-svg3 {
+  fill: var(--ligth_gray_border-color);
+}
 /* ---------------------------------------------- */
 
 /* js элементы  */
@@ -241,7 +303,7 @@ background-color: var(--ligth_gray-color);
 padding: 45px;
  }
 .calc__text__pay {
-  color: black;
+  color: var(--black-color);
 }
 
 /* Таблица  */
