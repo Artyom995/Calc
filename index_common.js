@@ -13,7 +13,7 @@
       { id: 'summ__credit', value: '300000' },
       { id: 'percentages', value: '30' },
       { id: 'termCredit', value: '60' },
-    
+
     ];
     const inputs__com = [
       { id: 'summ__credit__com', value: '10000' },
@@ -61,19 +61,19 @@
           createResultDiv(formDataResult);
           let dolgN = calculateCredit(formDataResult.danoCreditCredit, formDataResult.danoCreditPercentages, formDataResult.danoCreditTermCredit, 0);
           let dolgN__com = calculateCredit(formDataResult.creditTwoCredit, formDataResult.creditTwoPercentages, formDataResult.creditTwoTermCredit, 0);
-      
+
           {
             const calcSection1 = document.getElementById('calc');
             const resultDiv = document.createElement('div');
             resultDiv.className = 'result__div__pay';
             calcSection1.appendChild(resultDiv);
-      
+
             // Создаем параграфы для вывода данных
             let summCredi = document.createElement('p');
             summCredi.classList.add(`text`, `text__pay`);
             summCredi.textContent = `платеж по кредиту равен ${dolgN[0].payment}`;
             resultDiv.appendChild(summCredi);
-      
+
             // Создаем параграфы для вывода данных common
             let summCredi__com = document.createElement('p');
             summCredi__com.classList.add(`text`, `text__pay`);
@@ -94,7 +94,7 @@
         const termCreditValue__com = parseFloat(termCreditInput__com.value);
 
         // Проверяем данные
-        if (summCreditValue <= 0 || percentagesValue < 0 || termCreditValue <= 0 ) {
+        if (summCreditValue <= 0 || percentagesValue < 0 || termCreditValue <= 0) {
           // Создаем новый div элемент
           const resultDiv = document.createElement('div');
           resultDiv.className = 'result-div';
@@ -106,7 +106,7 @@
           alert('Ошибка: сумма кредита, процентная ставка, срок кредита и дополнительный платеж должны быть положительными');
           return;
         }
-        if (summCreditValue__com <= 0 || percentagesValue__com < 0 || termCreditValue__com <= 0 ) {
+        if (summCreditValue__com <= 0 || percentagesValue__com < 0 || termCreditValue__com <= 0) {
           // Создаем новый div элемент
           const resultDiv__com = document.createElement('div');
           resultDiv__com.className = 'result-div';
@@ -148,13 +148,13 @@
       // Создаем параграфы для вывода данных
       let summCredi = document.createElement('p');
       summCredi.classList.add(`text`, `text__pay`);
-      summCredi.textContent = `платеж по кредиту равен ${dolgN[0].payment}`;
+      summCredi.textContent = `Платеж по кредиту равен ${dolgN[0].payment}`;
       resultDiv.appendChild(summCredi);
 
       // Создаем параграфы для вывода данных common
       let summCredi__com = document.createElement('p');
       summCredi__com.classList.add(`text`, `text__pay`);
-      summCredi__com.textContent = `платеж по рассрочке равен ${dolgN__com[0].payment}`;
+      summCredi__com.textContent = `Платеж по рассрочке равен ${dolgN__com[0].payment}`;
       resultDiv.appendChild(summCredi__com);
     }
     let rasVCre = rasrohVCredit(formDataResult);
@@ -234,7 +234,7 @@
     resultDiv__com.appendChild(summCredit__com);
     resultDiv__com.appendChild(percentages__com);
     resultDiv__com.appendChild(termCredit__com);
-  
+
 
 
 
@@ -299,10 +299,17 @@
     let rasVCre = calculateCredit(formDataResult.danoCreditCredit, formDataResult.danoCreditPercentages, formDataResult.danoCreditTermCredit, formDataResult.creditTwoCredit);
 
     const calcSection2 = document.getElementById('calc');
+
     // Таблица
     const resultDiv1 = document.createElement('div');
-resultDiv1.className = 'result__div__pay';
-calcSection2.appendChild(resultDiv1);
+    resultDiv1.className = 'result__div__pay';
+    calcSection2.appendChild(resultDiv1);
+
+    const textTable =document.createElement('p') 
+    textTable.className = 'text__table text';
+    textTable.textContent = `Таблица расчета кредита при его погашении суммой рассрочки`
+    resultDiv1.appendChild(textTable);
+
     const table = document.createElement('table');
     table.className = 'table table__v__credit';
     resultDiv1.appendChild(table);
@@ -349,12 +356,12 @@ calcSection2.appendChild(resultDiv1);
 
     let summCrediTab = document.createElement('p');
     summCrediTab.classList.add(`text`, `text__v__credit`);
-    summCrediTab.textContent = `вы гасите кредит за ${Number(rasVCre.length)} месяцев`;
+    summCrediTab.textContent = `Вы осуществляете погашение кредита за ${Number(rasVCre.length)} месяцев вместо ${formDataResult.danoCreditTermCredit} месяцев`;
     resultDiv2.appendChild(summCrediTab);
 
     let summCrediTabCom = document.createElement('p');
     summCrediTabCom.classList.add(`text`, `text__v__credit`);
-    summCrediTabCom.textContent = `с учетом того что каждый месяц мы будем брать рассрочку на ${formDataResult.creditTwoCredit} и вкидывать ее в кредит`;
+    summCrediTabCom.textContent = `С учетом того что каждый месяц мы будем брать рассрочку на ${formDataResult.creditTwoCredit} и класть ее в кредит`;
     resultDiv2.appendChild(summCrediTabCom);
 
     return rasVCre; // Resolve the promise with the result
@@ -446,22 +453,17 @@ calcSection2.appendChild(resultDiv1);
       });
     };
 
-    let debtBurden2 = document.createElement('p');
-    debtBurden2.classList.add(`text`, `text__debt__burden`);
-    debtBurden2.textContent = `Долговая нагрузка`;
-    resultDiv3.appendChild(debtBurden2);
-
     let debtBurden3 = document.createElement('p');
     debtBurden3.classList.add(`text`, `text__debt__burden`);
-    debtBurden3.textContent = `долговая нагрузка будет ${dolgNResults.length} месяца`;
+    debtBurden3.textContent = `Долговая нагрузка будет ${dolgNResults.length} месяца`;
     resultDiv3.appendChild(debtBurden3);
 
     let debtBurden4 = document.createElement('p');
     debtBurden4.classList.add(`text`, `text__debt__burden`);
-    debtBurden4.textContent = `конечный платеж будет равен ${dolgNResults[dolgNResults.length - 1].dolgNResult} этот платеж будет 
+    debtBurden4.textContent = `Конечный платеж будет равен ${dolgNResults[dolgNResults.length - 1].dolgNResult} этот платеж будет 
     сроком на ${formDataResult.creditTwoTermCredit} месяцев который будет ежемесячно уменьшаться на ${dolgN__com[0].payment} рублей. 
-    Наша максимальная долговая нагрузка будет равна ${Math.max(...dolgNResults.map(result => Number(result.dolgNResult)))} а так же разницу
-    долговой нагрузки в которой видно что на после 6 месяца ваша долговая нагрузка будет падать на ${dolgNResults[6].paymentDiff}`;
+    Наша максимальная долговая нагрузка будет равна ${Math.max(...dolgNResults.map(result => Number(result.dolgNResult)))} а так же 
+    после ${formDataResult.creditTwoTermCredit} месяца ваша долговая нагрузка будет падать на ${dolgNResults[formDataResult.creditTwoTermCredit].paymentDiff}`;
     resultDiv3.appendChild(debtBurden4);
 
     return dolgNResults;
@@ -491,7 +493,7 @@ calcSection2.appendChild(resultDiv1);
     let resultsText2 = document.createElement('p');
     resultsText2.classList.add(`text`, `results__text`);
     resultsText2.textContent = `
-    мы имеем: Ежемесячно уменьшающийся платеж по кредиту.
+    Мы имеем: Ежемесячно уменьшающийся платеж по кредиту.
     Растущую долговую нагрузку на срок рассрочки, максимальную долговую нагрузку равной ${Math.max(...dolgNResults.map(result => Number(result.dolgNResult)))}
     Погашение кредита через ${Number(rasVCre.length)} месяцев.
     После того как кредит загаситься полностью останеться платеж который равен ${dolgNResults[dolgNResults.length - 1].dolgNResult} рублей сроком на ${formDataResult.creditTwoTermCredit} месяцев который будет ежемесячно уменьшаться на ${dolgN__com[0].payment} рублей.
