@@ -95,7 +95,24 @@ input::-webkit-inner-spin-button {
 .container {
   padding: 0 30px;
 }
-
+.btn {
+  padding: 10px;
+  border-radius: 7px;
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover {
+  box-shadow: 0 0 35px hsla(0, 0%, 9%, 0.3);
+}
+.btn:focus {
+  box-shadow: 0 0 35px hsla(0, 0%, 9%, 0.3);
+  background-color: var(--ligth_white-color);
+  color: var(--black-color);
+}
+.btn:active {
+  box-shadow: none;
+  background-color: var(--ligth_white-color);
+  color: var(--black-color);
+}
 /* header */
 .header__container {
   padding: 0px 144px;
@@ -279,7 +296,7 @@ input::-webkit-inner-spin-button {
 }
 
 .form__container {
-  width: 75%;
+  width: 80%;
   padding: 15px 0;
   background-color: var(--ligth_gray-color);
   justify-content: space-between;
@@ -291,7 +308,7 @@ input::-webkit-inner-spin-button {
 }
 
 .input__form__calc {
-  width: 165px;
+  width: 190px;
   border-radius: 8px;
   padding: 2px 7px;
   transition: all .3s ease-in-out;

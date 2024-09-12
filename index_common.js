@@ -8,28 +8,7 @@
 
 (function () {
   //заполнение input 
-  document.addEventListener('DOMContentLoaded', function () {
-    const inputs = [
-      { id: 'summ__credit', value: '300000' },
-      { id: 'percentages', value: '30' },
-      { id: 'termCredit', value: '60' },
 
-    ];
-    const inputs__com = [
-      { id: 'summ__credit__com', value: '10000' },
-      { id: 'percentages__com', value: '0' },
-      { id: 'termCredit__com', value: '6' },
-    ];
-
-    inputs.forEach((input) => {
-      const elem = document.getElementById(input.id);
-      elem.value = input.value;
-    });
-    inputs__com.forEach((input) => {
-      const elem = document.getElementById(input.id);
-      elem.value = input.value;
-    });
-  });
   // Создаем функцию, которая собирает данные из полей ввода
 
   //callback - функция
