@@ -1,2 +1,5 @@
 User-agent: *
+Disallow: /admin/
+Disallow: /private/
 Allow: /
+Sitemap: https://artyom995.github.io/Calc/sitemap.xml
