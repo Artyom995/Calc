@@ -387,6 +387,24 @@ display: none;
 fill: var(--ligth_gray-color);
 }
 
+.footer__text__item {
+  color: var(--ligth_white-color);
+  display: none;
+  transition: all .3s ease-in-out;
+
+}
+.footer__link {
+  transition: all .3s ease-in-out;
+}
+
+.footer__link:hover {
+  color: var(--text-color);
+}
+.footer__link:active p.footer__text__item {
+display: block;
+}
+
+
 /* ---------------------------------------------- */
 
 /* js элементы  */

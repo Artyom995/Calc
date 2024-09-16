@@ -431,7 +431,8 @@
       padding: 40px 144px;
     }
   
-    .footer__text {
+    .footer__text,
+    .footer__text__item {
       color: var(--ligth_gray-color);
     }
   
