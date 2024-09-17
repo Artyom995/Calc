@@ -91,35 +91,43 @@ input::-webkit-inner-spin-button {
   flex-wrap: wrap;
   align-items: center;
 }
+
 h2 {
   font-size: 24px;
 }
+
 .text {
   font-size: 16px;
 }
+
 .btn {
   padding: 10px;
   border-radius: 7px;
   transition: all 0.3s ease-in-out;
 }
+
 .btn:hover {
   box-shadow: 0 0 35px hsla(0, 0%, 9%, 0.3);
 }
+
 .btn:focus {
   box-shadow: 0 0 35px hsla(0, 0%, 9%, 0.3);
   background-color: var(--ligth_white-color);
   color: var(--black-color);
 }
+
 .btn:active {
   box-shadow: none;
   background-color: var(--ligth_white-color);
   color: var(--black-color);
 }
+
 /* header */
 .header__container {
   padding: 0px 20px;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
 .header {
@@ -129,6 +137,7 @@ h2 {
   margin-bottom: 20px;
   padding: 30px 0;
 }
+
 .logo {
   margin-bottom: 20px;
   margin-right: auto;
@@ -140,19 +149,34 @@ h2 {
   height: 40px;
   fill: var(--black-color);
 }
+
+.header__btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  transition: all .3s ease-in-out;
+  position: absolute;
+  top: 5px;
+  right: 23px;
+
+}
+
 .header__nav {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
 }
+
 .nav__list {
-  padding: 0 15px ;
+  padding: 0 15px;
   width: 420px;
   justify-content: space-between;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
+
 .nav__link {
   font-size: 16px;
   outline: none;
@@ -160,12 +184,12 @@ h2 {
 }
 
 .nav__link:hover {
-  color: var(--hover-color);
+  color: var(--text-color);
 }
 
 .nav__link:focus {
   outline: 1px solid var(--hover-color);
-  color: var(--hover-color);
+  color: var(--text-color);
 }
 
 .nav__link:active {
@@ -188,9 +212,11 @@ h2 {
 .hero__picture {
   width: 48%;
 }
+
 .hero__img {
-display: none;
+  display: none;
 }
+
 .hero__title {
   font-weight: 700;
   display: flex;
@@ -262,14 +288,15 @@ display: none;
 
 .calc__container {
   background-color: var(--ligth_gray-color);
-  padding: 10px 15px ;
+  padding: 10px 15px;
   border-bottom: 1px solid var(--ligth_gray_border-color);
 }
 
 .calc__nav {
   font-weight: 700;
   font-size: 20px;
-  padding: 0 0 20px 0;;
+  padding: 0 0 20px 0;
+  ;
   border-bottom: 1px solid var(--ligth_gray_border-color);
 }
 
@@ -295,18 +322,20 @@ display: none;
   background-color: var(--ligth_gray-color);
   justify-content: space-between;
   flex-direction: column;
-   align-items: baseline;
+  align-items: baseline;
 }
 
 .form__input {
   width: 100%;
   max-width: 340px;
   margin-bottom: 10px;
- 
+
 }
+
 .form__text {
   margin-bottom: 10px;
 }
+
 .input__form__calc {
   width: 190px;
   border-radius: 8px;
@@ -351,24 +380,30 @@ display: none;
   background-color: var(--black-color);
 
 }
+
 .footer__container {
   padding: 20px;
 }
+
 .footer__text {
   color: var(--ligth_gray-color);
 }
+
 .footer__box {
   color: var(--ligth_gray-color);
   margin-right: auto;
   margin-bottom: 40px;
 }
+
 .footer__subtitle {
   margin-bottom: 10px;
 }
+
 .footer__social__svg {
   fill: var(--ligth_gray-color);
   transition: all .3s ease-in-out;
 }
+
 .footer__list__icon {
   gap: 40px;
 }
@@ -376,15 +411,18 @@ display: none;
 .footer__social1:hover svg {
   fill: var(--text-color);
 }
+
 .footer__subtitle__box {
   display: flex;
   gap: 20px;
 }
+
 .footer__text {
   margin-bottom: 10px;
 }
+
 .footer__svg {
-fill: var(--ligth_gray-color);
+  fill: var(--ligth_gray-color);
 }
 
 .footer__text__item {
@@ -393,6 +431,9 @@ fill: var(--ligth_gray-color);
   transition: all .3s ease-in-out;
 
 }
+.footer__subtitle__item {
+  cursor: pointer;
+}
 .footer__link {
   transition: all .3s ease-in-out;
 }
@@ -400,9 +441,10 @@ fill: var(--ligth_gray-color);
 .footer__link:hover {
   color: var(--text-color);
 }
-.footer__link:active p.footer__text__item {
-display: block;
+.footer__item > h3:focus + .footer__text__item {
+  display: block;
 }
+
 
 
 /* ---------------------------------------------- */
@@ -412,38 +454,46 @@ display: block;
   width: 100%;
   margin-bottom: 20px;
 }
+
 .text__table {
   margin-bottom: 20px;
 }
+
 .calc__subtitle {
   font-size: 20px;
   color: var(--black-color);
   margin-bottom: 10px;
 }
+
 .result-div-container {
   flex-direction: column;
 }
+
 .result__div__pay,
 .result-div-container,
 .table {
   background-color: var(--ligth_gray-color);
   padding: 10px 15px;
 }
+
 .result__div__pay:last-child {
   padding-bottom: 45px;
 }
+
 .calc__text__pay {
   color: var(--black-color);
 }
+
 .result__div__pay {
-   overflow-x: scroll;
+  overflow-x: scroll;
 }
+
 /* Таблица  */
 .table {
   border-collapse: collapse;
   width: 100%;
   font-size: 16px;
- 
+
 }
 
 .table th,
