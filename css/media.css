@@ -1,8 +1,4 @@
 @media (min-width: 425px) {
-  .hero__container {
-    padding-left: calc(50px + 6vw);
-  }
-
   .nav__list {
     width: 450px;
   }
@@ -13,10 +9,6 @@
   .header__container,
   .main {
     padding: 0 40px;
-  }
-
-  .hero__container {
-    padding-left: calc(110px + 6vw);
   }
 
   .header__nav {
@@ -30,7 +22,9 @@
   .footer__container {
     padding: 20px 40px;
   }
-
+  .footer__text__item {
+    width: 50%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -364,9 +358,7 @@
   }
 
 
-  .text {
-    color: var(--black-color);
-  }
+
 
   /* form */
   .form {
