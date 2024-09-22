@@ -353,7 +353,7 @@
 
     let summCrediTabCom = document.createElement('p');
     summCrediTabCom.classList.add(`text`, `text__v__credit`);
-    summCrediTabCom.textContent = `С учетом того что каждый месяц мы будем брать рассрочку на ${formDataResult.creditTwoCredit} и класть ее в кредит`;
+    summCrediTabCom.textContent = `С учетом того что каждый месяц вы будете брать рассрочку на ${formDataResult.creditTwoCredit} и класть ее в кредит`;
     resultDiv2.appendChild(summCrediTabCom);
 
     return rasVCre; // Resolve the promise with the result
