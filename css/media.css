@@ -79,7 +79,9 @@
   .hero__picture {
     width: 47%;
   }
-
+  .hero__text {
+    height: 115px;
+  }
   .hero__title {
     width: 47%;
   }
