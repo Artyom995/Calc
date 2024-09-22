@@ -263,7 +263,7 @@ h2 {
 }
 
 .hero__text {
-  height: 133px;
+  height: 155px;
   overflow: scroll;
   transition: all 0.3s ease-in-out;
 }

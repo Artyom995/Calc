@@ -100,7 +100,7 @@
   }
 
   .form__input {
-    max-width: 90%;
+    max-width: 500px;
   }
 
 
@@ -366,7 +366,7 @@
   }
 
   .form__container {
-    width: 80%;
+    width: 100%;
     padding: 15px 0;
     background-color: var(--ligth_gray-color);
     justify-content: space-between;
@@ -414,10 +414,6 @@
     margin-bottom: 10px;
   }
 
-  .input__div {
-    justify-content: space-between;
-    margin-bottom: 8px;
-  }
 
 
 
@@ -556,5 +552,8 @@
     fill: var(--black-color);
     transition: all 0.3s ease-in-out;
 
+  }
+  .form__container {
+    justify-content: space-around;
   }
 }
