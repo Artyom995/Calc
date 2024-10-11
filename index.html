@@ -21,7 +21,17 @@
   <link rel="stylesheet" href="./css/media.css">
   <link type="image/x-icon" rel="shortcut icon" href="./img/favicon.png">
 
+
+
+  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-1P9L5C5TBK&amp;l=dataLayer&amp;cx=c"></script>
+  <script async="" src="https://mc.yandex.ru/metrika/tag.js"></script>
+  <!-- <script async="" crossorigin="anonymous" src="https://yastatic.net/safeframe-bundles/0.83/host.js"></script> что то связано с рекламными блоками -->
+
+
   <script defer src="./index_common.js"></script>
+  <script defer src="./item.js"></script>
+
 </head>
 
 <body>
@@ -63,8 +73,9 @@
       <nav class="header__nav nav">
         <ul class="nav__list flex">
           <li class="nav__item"><a href="#" class="nav__link">Экономика</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Долговая нагрузка</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Финансовая грамотность</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Кредит</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Долг</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Экономические циклы</a></li>
         </ul>
       </nav>
 
@@ -102,7 +113,7 @@
               <div class="input__div flex">
                 <span class="form__text text">Введите сумму кредита</span>
                 <div class="calc__input">
-                  <input type="number" min="0" required class="input__form__calc" id="summ__credit"
+                  <input type="text" min="0" required class="input__form__calc" id="summ__credit"
                     placeholder="Сумма кредита">
                   <svg width="43" height="31" class="input__svg svg1" viewBox="0 0 43 31" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -114,7 +125,7 @@
               <div class="input__div flex">
                 <span class="form__text text">Введите процентную ставку</span>
                 <div class="calc__input">
-                  <input type="number" min="0" max="100" required class="input__form__calc" id="percentages" step="0.01"
+                  <input type="text" min="0" max="100" required class="input__form__calc" id="percentages" step="0.01"
                     placeholder="Процентная ставка">
                   <svg width="43" height="31" class="input__svg svg2" viewBox="0 0 10 10" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -126,7 +137,7 @@
               <div class="input__div flex">
                 <span class="form__text text">Введите срок кредита в месяцах</span>
                 <div class="calc__input">
-                  <input type="number" min="0" required class="input__form__calc" id="termCredit" placeholder="Срок">
+                  <input type="text" min="0" required class="input__form__calc" id="termCredit" placeholder="Срок">
                   <svg width="38" height="38" class="input__svg svg3" viewBox="0 0 38 38" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -141,7 +152,7 @@
               <div class="input__div flex">
                 <span class="form__text text">Введите сумму рассрочки</span>
                 <div class="calc__input">
-                  <input type="number" min="0" required class="input__form__calc" id="summ__credit__com"
+                  <input type="text" min="0" required class="input__form__calc" id="summ__credit__com"
                     placeholder="Сумма рассрочки">
                   <svg width="43" height="31" class="input__svg svg4" viewBox="0 0 43 31" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -153,7 +164,7 @@
               <div class="input__div flex">
                 <span class="form__text text">Введите процентную ставку</span>
                 <div class="calc__input">
-                  <input type="number" min="0" max="100" required class="input__form__calc" id="percentages__com"
+                  <input type="text" min="0" max="100" required class="input__form__calc" id="percentages__com"
                     step="0.01" placeholder="Процентная ставка">
                   <svg width="43" height="31" class="input__svg svg5" viewBox="0 0 10 10" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -165,7 +176,7 @@
               <div class="input__div flex">
                 <span class="form__text text">Введите срок кредита в месяцах</span>
                 <div class="calc__input">
-                  <input type="number" min="0" required class="input__form__calc" id="termCredit__com"
+                  <input type="text" min="0" required class="input__form__calc" id="termCredit__com"
                     placeholder="Срок">
                   <svg width="38" height="38" class="input__svg svg6" viewBox="0 0 38 38" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -309,7 +320,7 @@
           <li class="footer__item">
             <a class="footer__link">
               <h3 class="footer__subtitle__item"> Что такое долговая нагрузка?</h3>
-              <svg width="30" height="30" viewBox="0 0 63 117" class="footer__link__svg" fill="none"
+              <svg width="30" height="30" viewBox="0 0 63 117"  class="footer__link__svg"  fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M7.4 115.3C6.6 116.1 5.6 116.5 4.5 116.5C3.4 116.5 2.4 116.1 1.6 115.3C-2.26498e-06 113.7 -2.26498e-06 111.1 1.6 109.5L52.6 58.5L1.6 7.5C-2.26498e-06 5.9 -2.26498e-06 3.3 1.6 1.7C3.2 0.1 5.8 0.1 7.4 1.7L61.3 55.6C62.9 57.2 62.9 59.8 61.3 61.4L7.4 115.3Z" />
@@ -338,7 +349,7 @@
           </li>
 
           <li class="footer__item">
-            <a class="footer__link">
+            <a class="footer__link" >
               <h3 class="footer__subtitle__item">Как быть со страховкой на кредит?</h3>
               <svg width="30" height="30" viewBox="0 0 63 117" class="footer__link__svg" fill="none"
                 xmlns="http://www.w3.org/2000/svg">

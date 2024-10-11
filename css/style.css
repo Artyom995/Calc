@@ -451,6 +451,7 @@ h2 {
   height: 15px;
   fill: var(--ligth_gray-color);
   transition: all .3s ease-in-out;
+  cursor: pointer;
 }
 .footer__link:hover {
   color: var(--text-color);
