@@ -24,13 +24,73 @@
 
 
   <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
-  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-1P9L5C5TBK&amp;l=dataLayer&amp;cx=c"></script>
+  <script type="text/javascript" async=""
+    src="https://www.googletagmanager.com/gtag/js?id=G-1P9L5C5TBK&amp;l=dataLayer&amp;cx=c"></script>
   <script async="" src="https://mc.yandex.ru/metrika/tag.js"></script>
   <!-- <script async="" crossorigin="anonymous" src="https://yastatic.net/safeframe-bundles/0.83/host.js"></script> что то связано с рекламными блоками -->
 
 
   <script defer src="./index_common.js"></script>
   <script defer src="./item.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const items = document.querySelectorAll('.footer__item');
+
+      items.forEach((item) => {
+        const h3 = item.querySelector('h3');
+        const p = item.querySelector('p');
+        const svg = item.querySelector('.footer__link');
+
+        h3.addEventListener('click', () => {
+          p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        });
+
+        svg.addEventListener('click', () => {
+          p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+
+
+      const input1 = document.getElementById('summ__credit');
+      const input2 = document.getElementById('percentages');
+      const input3 = document.getElementById('termCredit');
+      const input4 = document.getElementById('summ__credit__com');
+      const input5 = document.getElementById('percentages__com');
+      const input6 = document.getElementById('termCredit__com');
+
+
+
+      function addSpacesToInput(input) {
+        input.addEventListener('input', function () {
+          const value = this.value.replace(/\s+/g, '');
+          const formattedValue = value.replace(/(\d)(?=(\d{3})+$)/g, '$1 ');
+          this.value = formattedValue;
+        });
+      }
+      addSpacesToInput(input1);
+      addSpacesToInput(input2);
+      addSpacesToInput(input3);
+      addSpacesToInput(input4);
+      addSpacesToInput(input5);
+      addSpacesToInput(input6);
+
+      function restrictInputToNumbers(inputField) {
+        inputField.addEventListener('keypress', function (event) {
+          if (!/\d/.test(String.fromCharCode(event.keyCode))) {
+            event.preventDefault();
+          }
+        });
+      }
+      restrictInputToNumbers(input1);
+      restrictInputToNumbers(input2);
+      restrictInputToNumbers(input3);
+      restrictInputToNumbers(input4);
+      restrictInputToNumbers(input5);
+      restrictInputToNumbers(input6);
+
+    });  
+  </script>
 
 </head>
 
@@ -64,11 +124,11 @@
       </a>
       <button class="header__btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M2 5H22V7H2V5Z" fill="black"/>
-          <path d="M2 11H22V13H2V11Z" fill="black"/>
-          <path d="M2 17H22V19H2V17Z" fill="black"/>
-          </svg>
-          
+          <path d="M2 5H22V7H2V5Z" fill="black" />
+          <path d="M2 11H22V13H2V11Z" fill="black" />
+          <path d="M2 17H22V19H2V17Z" fill="black" />
+        </svg>
+
       </button>
       <nav class="header__nav nav">
         <ul class="nav__list flex">
@@ -176,8 +236,7 @@
               <div class="input__div flex">
                 <span class="form__text text">Введите срок кредита в месяцах</span>
                 <div class="calc__input">
-                  <input type="text" min="0" required class="input__form__calc" id="termCredit__com"
-                    placeholder="Срок">
+                  <input type="text" min="0" required class="input__form__calc" id="termCredit__com" placeholder="Срок">
                   <svg width="38" height="38" class="input__svg svg6" viewBox="0 0 38 38" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -320,7 +379,7 @@
           <li class="footer__item">
             <a class="footer__link">
               <h3 class="footer__subtitle__item"> Что такое долговая нагрузка?</h3>
-              <svg width="30" height="30" viewBox="0 0 63 117"  class="footer__link__svg"  fill="none"
+              <svg width="30" height="30" viewBox="0 0 63 117" class="footer__link__svg" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M7.4 115.3C6.6 116.1 5.6 116.5 4.5 116.5C3.4 116.5 2.4 116.1 1.6 115.3C-2.26498e-06 113.7 -2.26498e-06 111.1 1.6 109.5L52.6 58.5L1.6 7.5C-2.26498e-06 5.9 -2.26498e-06 3.3 1.6 1.7C3.2 0.1 5.8 0.1 7.4 1.7L61.3 55.6C62.9 57.2 62.9 59.8 61.3 61.4L7.4 115.3Z" />
@@ -349,7 +408,7 @@
           </li>
 
           <li class="footer__item">
-            <a class="footer__link" >
+            <a class="footer__link">
               <h3 class="footer__subtitle__item">Как быть со страховкой на кредит?</h3>
               <svg width="30" height="30" viewBox="0 0 63 117" class="footer__link__svg" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -429,7 +488,8 @@
         </li>
       </ul> -->
 
-      <p class="footer__text__none text">Отказ от ответственности: данный калькулятор не является финансовой рекомендацией и
+      <p class="footer__text__none text">Отказ от ответственности: данный калькулятор не является финансовой
+        рекомендацией и
         не предназначен для принятия инвестиционных решений. Он создан исключительно в целях ознакомления и не должен
         рассматриваться как профессиональная консультация. Пользователь сам несет ответственность за любые решения,
         принятые на основе полученных результатов. Я не
