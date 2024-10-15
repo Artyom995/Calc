@@ -38,6 +38,7 @@
     const termCreditInput__com = document.getElementById('termCredit__com');
 
     // Добавляем обработчик события клика на кнопку
+    
 
     return new Promise(resolve => {
       form.addEventListener('submit', function (e) {
@@ -76,13 +77,36 @@
           let dolgNResults = debtBurden(rasVCre, dolgN__com);
           results(formDataResult, dolgN, dolgN__com, rasVCre, dolgNResults);
         });
+
+
+        if (summCreditInput.value.includes(' ')) {
+          summCreditInput.value = summCreditInput.value.replace(/\s+/g, '');
+        }
         const summCreditValue = parseFloat(summCreditInput.value);
+        
+        if (percentagesInput.value.includes(' ')) {
+          percentagesInput.value = percentagesInput.value.replace(/\s+/g, '');
+        }
         const percentagesValue = parseFloat(percentagesInput.value);
+        
+        if (termCreditInput.value.includes(' ')) {
+          termCreditInput.value = termCreditInput.value.replace(/\s+/g, '');
+        }
         const termCreditValue = parseFloat(termCreditInput.value);
-
-
+        
+        if (summCreditInput__com.value.includes(' ')) {
+          summCreditInput__com.value = summCreditInput__com.value.replace(/\s+/g, '');
+        }
         const summCreditValue__com = parseFloat(summCreditInput__com.value);
+        
+        if (percentagesInput__com.value.includes(' ')) {
+          percentagesInput__com.value = percentagesInput__com.value.replace(/\s+/g, '');
+        }
         const percentagesValue__com = parseFloat(percentagesInput__com.value);
+        
+        if (termCreditInput__com.value.includes(' ')) {
+          termCreditInput__com.value = termCreditInput__com.value.replace(/\s+/g, '');
+        }
         const termCreditValue__com = parseFloat(termCreditInput__com.value);
 
         // Проверяем данные
@@ -111,6 +135,10 @@
           return;
         }
 
+
+
+
+        
         const formData = {
           danoCreditCredit: parseFloat(summCreditInput.value),
           danoCreditPercentages: parseFloat(percentagesInput.value),
