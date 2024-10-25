@@ -118,7 +118,7 @@
 
 @media (min-width: 1024px) {
   .text {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .nav__link {
@@ -282,7 +282,7 @@
   }
 
   .hero__text {
-    height: 133px;
+    height: 140px;
     transition: all 0.3s ease-in-out;
   }
 
