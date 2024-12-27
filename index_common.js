@@ -381,7 +381,7 @@
 
     let summCrediTabCom = document.createElement('p');
     summCrediTabCom.classList.add(`text`, `text__v__credit`);
-    summCrediTabCom.textContent = `С учетом того что каждый месяц вы будете брать рассрочку на ${formDataResult.creditTwoCredit} и класть ее в кредит`;
+    summCrediTabCom.textContent = `С учетом того что каждый месяц вы будете брать рассрочку на ${formDataResult.creditTwoCredit} и вносить ее в кредит`;
     resultDiv2.appendChild(summCrediTabCom);
 
     return rasVCre; // Resolve the promise with the result
@@ -516,8 +516,7 @@
     Мы имеем: Ежемесячно уменьшающийся платеж по кредиту.
     Растущую долговую нагрузку на срок рассрочки, максимальную долговую нагрузку равной ${Math.max(...dolgNResults.map(result => Number(result.dolgNResult)))}
     Погашение кредита через ${Number(rasVCre.length)} месяцев.
-    После того как кредит загаситься полностью останеться платеж который равен ${dolgNResults[dolgNResults.length - 1].dolgNResult} рублей сроком на ${formDataResult.creditTwoTermCredit} месяцев который будет ежемесячно уменьшаться на ${dolgN__com[0].payment} рублей.
-    А так же за ${dolgNResults.length} месяцев - вещей равных сумме ${formDataResult.creditTwoCredit * dolgNResults.length} рублей
+    После того как кредит будет полностью погашен, останется платеж, который равен ${dolgNResults[dolgNResults.length - 1].dolgNResult} рублей сроком на ${formDataResult.creditTwoTermCredit} месяцев, который будет ежемесячно уменьшаться на ${dolgN__com[0].payment} рублей.    А так же за ${dolgNResults.length} месяцев - вещей равных сумме ${formDataResult.creditTwoCredit * dolgNResults.length} рублей
     `;
     resultDiv4.appendChild(resultsText2);
 
